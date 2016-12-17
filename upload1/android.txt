@@ -1,0 +1,31 @@
+作者：冷宏坤
+链接：https://www.zhihu.com/question/27667028/answer/38196772
+来源：知乎
+著作权归作者所有，转载请联系作者获得授权。
+
+UI层
+
+    图片加载:之前用的Picasso，非常方便。但因为picasso是自带的请求处理，没办法和已有的 http 请求统一调度，同时在滑动列表中的使用不是很舒服，有结构洁癖的我后来自己写了个库https://github.com/suanmiao/CommonLib。
+    依赖注入：Butterknife ，小而全的依赖注入库。之前使用过一段时间的 AndroidAnnotation ，功能非常完善，但一些特性上让人难以接受（详见http://suanmiao.me/tech/12/06/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%94%A8androidannotation%E8%BF%9B%E8%A1%8C-inflate/）
+
+
+数据层
+
+    Http/REST 请求：如果是严谨的REST API , Retrofit 会非常好用！各种 annotation 用起来省事又省心！唯独不好的地方是很多时候我们的接口不是完全的 REST 结构，同时需要针对每个 request 做单独的处理，这时候 Retrofit 就显得有些尴尬了。这时候我会用 volley，volley 的请求自定义和管理支持很好。
+    异步网络请求处理：是否曾经被网络请求的各种异常情况弄得焦头烂额？直到用到了 RoboSpice，事情变得简单许多。对网络请求的再次封装，将请求的各种结果回调变得简便，同时对 Retrofit , Okhttp,Ormlite 等支持都非常完善了，有了它，生活更 easy 了。
+
+    JSON解析：最通用的是 Gson ，用起来也很方便，但从效率上来讲 Gson 不是最快的， FastJson 和 Jackson 各有优势（具体分析参见这里：http://www.cnblogs.com/windlaughing/p/3241776.html）
+    数据库：ormLite和greenDao都挺好的。
+
+
+其他
+
+    消息事件队列：以前用 Guava ，后来发现有针对 Android 平台设计的 Otto 性能更优（虽然没有实际感受出来效率上的差别，既然是 Square 大法，一定要支持！）
+
+
+各种 Widget 因为需求差异很大，需要用的时候再找也无妨。
+
+最后介绍两个 Android 开源项目汇总地址：
+
+    Trinea 汇总的开源项目，类目非常全面：https://github.com/Trinea/android-open-project
+    国外开发者汇总的开源项目：https://github.com/cesards/AndroidElementals

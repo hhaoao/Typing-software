@@ -1,9 +1,12 @@
 $(document).ready(function() {
-	$("#b01").click(function() {
-		htmlobj = $.ajax({
-			url: "text/test1.txt",
-			async: false
-		});
-		$("#viem").html(htmlobj.responseText);
+    var tpath = "upload1/upload1.text";
+	$("#gbnr").click(function() {
+            $.ajax({
+            url: tpath,
+            async: false,
+            success: function (result) {
+                $("#viem").html(result.responseText);
+            }
+        });
 	});
 });

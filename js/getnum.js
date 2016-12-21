@@ -1,6 +1,7 @@
+var i = 0;
+var viem_time;
 function jd(){
-	var i = 0;
-	
+
 	function show_time(){
 		$("#clock").html("时间为：" + i++ + "秒" + "<br>" + "速度为:" + ($('#text1').val().length/i).toFixed(2) + "字/秒");
 	}
